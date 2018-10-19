@@ -53,18 +53,32 @@
 
 </script>
 <style scoped lang="scss">
-	ul{
-		list-style: none;
-		overflow: hidden;
+	
+div.who{
+	ul.city{
+		margin: 0;
 		padding:0;
+		list-style: none;
+		li{
+			padding:10px;
+			ul{
+			list-style: none;
+			overflow: hidden;
+			padding:0;
 
-      li{
-		width: 100%;
-        
-        border-bottom: 1px solid #ccc;
-        img{
-          width: 100%
-        }
-      }
-    }
+	    	li{
+				width: 100%;
+		        padding:10px 0;
+		        border-bottom: 1px solid #ccc;
+	        	img{
+	          		width: 100%
+        		}
+      		}
+    	}
+		}
+		
+	}
+	
+}
+	
 </style>
