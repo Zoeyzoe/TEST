@@ -13,7 +13,7 @@ module.exports = {
     proxyTable: {
         '/hub':{
             target:'https://api.ricebook.com',
-            host:'api.ricebook.com',
+            // host:'api.ricebook.com',
             changeOrigin:true
         },
         
@@ -21,7 +21,13 @@ module.exports = {
             target:'https://s1.ricebook.com',
             host:'s1.ricebook.com',
             changeOrigin:true
-            }
+        },
+        
+        '/product':{
+            target:'https://api.ricebook.com',
+            host:'api.ricebook.com',
+            changeOrigin:true
+        }
     },
 
     // Various Dev Server settings
