@@ -6,7 +6,7 @@
 			<slot></slot>
 			</li>
 			<li class="r">
-				<router-link tag="li" to="/login" activeClass="active">登录</router-link>
+				<router-link tag="li" to="/login" activeClass="active" >登录</router-link>
 				<i class="iconfont icon-search"></i>
 			</li>
 				
