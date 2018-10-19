@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="info">
     <div class="basic">
       <h2>{{info.basic.name}}</h2>
     <p>{{info.basic.description}}</p>

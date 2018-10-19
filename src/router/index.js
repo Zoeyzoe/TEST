@@ -35,6 +35,7 @@ export default new Router({
                 path:'/product/:myfirstId/:mysecondId',
                 component:product
             },
+
             {
                 path:'/login',
                 component:login

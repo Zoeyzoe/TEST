@@ -1,45 +1,12 @@
 <template>
   <div>
 
-    <ul v-for="data in list">
-        <div class="sortname">{{data.name}}</div>
-        <li v-for="fooddata in data.sub_category_list" class="body">
-          {{fooddata.name}}
-        </li>
-   </ul>
-
-<!--     <table v-if="ladylist">
-  <caption>美容健身</caption>
-  <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr> c                                                                                                
-  </tbody>
-</table>
-
-<table v-if="sendlist">
-  <caption>本地送</caption>
-  <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-<table v-if="activitylist">
-  <caption>活动课程</caption>
-  <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table> -->
+      <ul v-for="data in list">
+          <div class="sortname">{{data.name}}</div>
+          <li v-for="fooddata in data.sub_category_list" class="body">
+            {{fooddata.name}}
+          </li>
+      </ul>
 
   </div>
 </template>
@@ -60,6 +27,9 @@
       axios.get("/cdn/home/djEvdmlydHVhbC9pbl9jYXRlZ29yeS5qc29uP2NpdHlfaWQ9MTA0JmlzX25ld19sb2NhbD1mYWxzZSZtZDU9MTY3YTY2MzA1OGQ3OGY4MmU5MGUwMDc3ZDIyNTlmNjMmMjAxODEwMTcxMDAw.json").then(res=>{
         console.log(res.data);
         this.list=res.data;
+
+        this.$store.commit("changetitle", "首页" )
+
 
       }).catch(err=>{
         console.log('error');
