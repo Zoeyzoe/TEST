@@ -19,27 +19,7 @@
 		<section class="view">
 			<router-view></router-view>
 		</section>
-		<section class="who">
-			
-			<ul class="city">
-				<li v-for="city in arr">
-					<h2>{{city.group_section.title}}</h2>
-					<p>{{city.group_section.desc}}</p>
-					<ul >
-						<!-- <router-link tag="li" to="/product" activeClass="active" v-for="next in city.tabs" @click="check()">
-							<img :src="next.url" alt="">
-						    <h3>{{next.title}}</h3>
-						    <p>{{next.desc}}</p>
-						</router-link> -->
-					    <li v-for="next in city.tabs" @click="check()">
-						    <img :src="next.url" alt="">
-						    <h3>{{next.title}}</h3>
-						    <p>{{next.desc}}</p>
-					    </li>
-					</ul>
-				</li>
-			</ul>
-		</section>
+		
 		
 
 	</div>
@@ -51,12 +31,13 @@
   import sidebar from "./components/sidebar";
   import sort from "./components/sort";
   import router from "./router";
-  import axios from "axios";
+  
 
 export default {
   data(){
     return{
     	isShow:false,
+    	show:true,
     	citylist:[
     		{
     			name:'上海',
@@ -95,18 +76,11 @@ export default {
   methods:{
   	handleClick(id){
   		console.log(id);
-  		axios.get(`/hub/home/v1/web/week_choice.json?city_id=${id}&page=0`).then(res=>{
-        console.log(res.data);
-        this.arr=res.data;
+  		router.push(`/home/${id}`)
 
-      }).catch(err=>{
-        console.log('error');
-      })
   		
-  	},
-  	check(){
-  		location.href="/#/product"
   	}
+  	
   }
   
 }

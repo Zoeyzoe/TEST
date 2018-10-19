@@ -1,6 +1,13 @@
 <template>
   <div>
-    product组件
+    <div class="basic">
+      <h2>{{info.basic.name}}</h2>
+    <p>{{info.basic.description}}</p>
+    <span>{{info.basic.price}}</span>/<span>{{info.basic.origin_price}}</span>|随时退
+    </div>
+    <div v-for="data in info.modules">
+      {{data.id}}
+    </div>
     
   </div>
 </template>
@@ -10,15 +17,17 @@
     data(){
       //必须要有return 及时不返回任何东西，不然报错
       return{
-
+        info:null
       }
       
     },
     mounted(){
-      // console.log(this.$route.params);
-      // axios.get(`/product/info/product_detail.json?product_id=1024077&sub_product_id=5048449`).then(res=>{
-      //   console.log(res.data)
-      // })
+      console.log(this.$route.params);
+      // product/info/product_detail.json?
+      axios.get(`/product/info/product_detail.json?product_id=${this.$route.params.myfirstId}&sub_product_id=${this.$route.params.mysecondId}`).then(res=>{
+        console.log(res.data)
+        this.info = res.data
+      })
     }
   }
 </script>

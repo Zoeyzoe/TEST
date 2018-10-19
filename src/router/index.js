@@ -7,9 +7,15 @@ import product from '../components/product.vue'
 import login from '../components/login.vue'
 import sort from '../components/sort.vue'
 import category from '../components/category.vue'
+import home from '../components/home.vue'
+
 
 export default new Router({
   routes: [
+            {
+                path:'/home/:cityid',
+                component:home
+            },
             {
                 path:'/category',
                 component:category,
@@ -26,16 +32,16 @@ export default new Router({
             },    
             {
                 // path:'/product/:myfirstId/:mysecondId',
-                path:'/product',
+                path:'/product/:myfirstId/:mysecondId',
                 component:product
-            },
-            {
-                path:'/sort',
-                component:sort
             },
             {
                 path:'/login',
                 component:login
+            },
+            {
+                path:"/",
+                redirect:"/home"
             }
   ]
 })
