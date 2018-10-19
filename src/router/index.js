@@ -29,10 +29,7 @@ export default new Router({
                 path:'/product',
                 component:product
             },
-            {
-                path:'/sort',
-                component:sort
-            },
+
             {
                 path:'/login',
                 component:login

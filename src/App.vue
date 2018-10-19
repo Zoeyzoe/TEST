@@ -1,12 +1,25 @@
 <template>
 	<div>
-		<navbar>
-			<router-link tag="li" to="/category" activeClass="active">分类</router-link>
+		<navbar class="navbar">
 
-			<div @click="isShow=!isShow"><img src="./assets/logo.png"><p>城市</p><i class="iconfont icon-moreunfold"></i></div>
+<!-- 			<router-link tag="div" to="/category" activeClass="active">{{$store.state.title}}</router-link> -->
+			<button @click="changerouter()">
+				{{$store.state.title}}
+			</button>
+
+			<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+			<div @click="isShow=!isShow" style="display: flex">
+				<img src="./assets/logo.png" style="height: 30px">
+				<p>
+					城市
+					<i class="iconfont icon-moreunfold"></i>
+				</p>
+			</div>
+
 		</navbar>
 
-		<sidebar v-show="isShow">
+		<sidebar v-show="isShow" class="sidebar">
 			<div>
 				<ul @click="isShow=!isShow">
 					<p>本地服务开通城市</p>
@@ -16,11 +29,12 @@
 				</ul>
 			</div>
 		</sidebar>
+
 		<section class="view">
 			<router-view></router-view>
 		</section>
+
 		<section class="who">
-			
 			<ul class="city">
 				<li v-for="city in arr">
 					<h2>{{city.group_section.title}}</h2>
@@ -52,6 +66,7 @@
   import sort from "./components/sort";
   import router from "./router";
   import axios from "axios";
+  import {mapState} from "vuex";
 
 export default {
   data(){
@@ -92,6 +107,11 @@ export default {
     sidebar,
     sort
   },
+
+  computed:{
+  	...mapState(["title"])
+  },
+
   methods:{
   	handleClick(id){
   		console.log(id);
@@ -106,7 +126,23 @@ export default {
   	},
   	check(){
   		location.href="/#/product"
+  	},
+
+  	changerouter(){
+
+  		if(window.location.hash == '#/category/list'){
+  			location.href="/"
+	  		// this.$router.push({path:'#/'});
+  		}else{
+		  	this.$router.push({path:'/category/list'});
+/*	  		this.$router.push({path:'#/category/list'});
+	  		location.href="/category/list"*/
+
+  		}
   	}
+
+
+
   }
   
 }
@@ -120,47 +156,58 @@ export default {
 html,body{
   height: 100%;
 }
-li.m{
+
+.navbar{
+	button{
+		background:none;
+		font-size:16px;
+		color:white;
+		border:none;
+		outline:none;
+	}
 	div{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	img{
-		height: 30px;
+		p{
+			font-size:8px;
+			display:flex;
+			align-items:flex-end;
+		}
 	}
 }
-}
 
-
+.sidebar{
 	ul{
-	  list-style: none;
-	  p{
-	  	text-align: center;
-	  }
-	  li{
-	  	width: 30%;
-	  	float: left;
-	  	text-align: center;
-	  	padding: 10px 0;
-	  }
+		list-style: none;
+		p{
+			text-align: center;
+		}
+		li{
+			width: 30%;
+			float: left;
+			text-align: center;
+			padding: 10px 0;
+		}
 	}
+}
 
+
+.view{
+	position: relative;
+    top: 40px;
+}
 	
 
-section{
+.who{
 	margin-top: 40px;
 	ul{
 		overflow: hidden;
-
-      li{
-		width: 100%;
-        
-        border-bottom: 1px solid #ccc;
-        img{
-          width: 100%
-        }
-      }
-    }
+    	li{
+			width: 100%;
+        	border-bottom: 1px solid #ccc;
+			img{
+				width: 100%
+			}
+		}
+	}
 }
 
 </style>

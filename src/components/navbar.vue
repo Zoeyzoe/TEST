@@ -1,17 +1,10 @@
 <template>
 	<nav>
 		
-		<ul>
-			<li class="m">
-			<slot></slot>
-			</li>
-			<li class="r">
-				<router-link tag="li" to="/login" activeClass="active">登录</router-link>
-				<i class="iconfont icon-search"></i>
-			</li>
-				
-			
-		</ul>
+		<slot></slot>
+		<router-link tag="div" to="/login" activeClass="active">登录</router-link>
+		<i class="iconfont icon-search"></i>
+
 	</nav>
 </template>
 
@@ -32,37 +25,14 @@
 		top: 0px;
 		width: 100%;
 		height: 40px;
-		
 		background: black;
 		color: white;
+		display:flex;
+		align-items:center;
+		justify-content:space-between;
+		padding:0 15px;
+		box-sizing:border-box;
 		z-index: 10;
-		ul{
-
-			height: 40px;
-			line-height: 40px;
-			list-style: none;
-			display: flex;
-			text-align: center;
-
-		li.l{
-			width: 50px
-		};
-		li.m{
-			flex: 1;
-			
-		}
-		li.r{
-			width: 100px;
-			display: flex;
-			li{
-				flex: 1
-			}
-			i{
-				flex: 1
-			}
-		}
-
-	}
 	};
 	
 
