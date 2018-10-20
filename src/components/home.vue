@@ -2,11 +2,15 @@
 	
 	<div class="who" >
 			
-			<ul class="city">
+			<ul class="city"  v-infinite-scroll="loadMore"
+   	  infinite-scroll-disabled="loading"
+   	  infinite-scroll-immediate-check	="false"
+   	  infinite-scroll-distance="0">
+
 				<li v-for="city in arr">
 					<h2>{{city.group_section.title}}</h2>
 					<p>{{city.group_section.desc}}</p>
-					<ul >
+					<ul>
 						
 					    <li v-for="next in city.tabs" @click="check(next.enjoy_url)">
 						    <img :src="next.url" alt="">
@@ -24,7 +28,9 @@
 	export default {
 		  data(){
 		    return{
-		    	arr:[]
+		    	arr:[],
+		    	loading:false ,
+		    	current:1,
 		    }
 		  },
 		  mounted(){
@@ -45,6 +51,19 @@
 		  		console.log(sid)
 		  		router.push(`/product/${fid}/${sid}`)
 		  		
+		  	},
+		  	loadMore(){
+		  		console.log("到底了");
+		  		this.current++;
+		  		if(this.current>7){
+		  			this.loading = true;
+		  			return
+		  		}
+		  		axios.get(`/hub/home/v1/web/week_choice.json?city_id=${this.$route.params.cityid}&page=${this.current}`).then(res=>{
+		  		console.log(res.data)
+		  		this.arr = [...this.arr,...res.data]
+		  		})
+
 		  	}
 		  }
 		}  

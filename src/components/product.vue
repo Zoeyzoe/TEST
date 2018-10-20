@@ -9,10 +9,10 @@
       
     </div>
     <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
+    <!-- <div class="swiper-pagination"></div> -->
     <!-- Add Arrows -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
+    <!-- <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div> -->
   </div>
       <h2>{{info.basic.name}} <i class="iconfont icon-favorites"></i> -{{info.basic.spec}}</h2>
       <p>{{info.basic.description}}</p>
