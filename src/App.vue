@@ -202,10 +202,11 @@ html,body{
 .view{
 	position: relative;
     top: 40px;
+    
 }
 	
 
-.who{
+section.who{
 	margin-top: 40px;
 	ul{
 		overflow: hidden;
