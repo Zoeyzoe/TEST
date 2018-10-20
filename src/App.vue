@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<navbar class="navbar">
-
+			
 <!-- 			<router-link tag="div" to="/category" activeClass="active">{{$store.state.title}}</router-link> -->
 			<button @click="changerouter()">
 				{{$store.state.title}}
@@ -16,9 +16,10 @@
 					<i class="iconfont icon-moreunfold"></i>
 				</p>
 			</div>
-
+			<!-- <router-link  slot="c" tag="div" to="/login" activeClass="active">登录</router-link> -->
+			<i slot="a" class="iconfont icon-search" @click="show=!show"></i>
 		</navbar>
-
+		
 		<sidebar v-show="isShow" class="sidebar">
 			<div>
 				<ul @click="isShow=!isShow">
@@ -29,7 +30,7 @@
 				</ul>
 			</div>
 		</sidebar>
-
+		<seek v-show="show"></seek>
 		<section class="view">
 			<router-view></router-view>
 		</section>
@@ -69,6 +70,7 @@
   import sidebar from "./components/sidebar";
   import sort from "./components/sort";
   import router from "./router";
+  import seek from "./components/seek";
 
   import axios from "axios";
   import {mapState} from "vuex";
@@ -80,7 +82,7 @@ export default {
   data(){
     return{
     	isShow:false,
-    	show:true,
+    	show:false,
     	citylist:[
     		{
     			name:'上海',
@@ -114,7 +116,8 @@ export default {
   components:{
     navbar,
     sidebar,
-    sort
+    sort,
+    seek
   },
 
   computed:{
@@ -125,9 +128,6 @@ export default {
   	handleClick(id){
   		console.log(id);
   		router.push(`/home/${id}`)
-
-  		
-
   	},
   	check(){
   		location.href="/#/product"
