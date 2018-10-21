@@ -2,8 +2,12 @@
 	<nav>
 		
 		<slot></slot>
-		<router-link tag="div" to="/login" activeClass="active">登录</router-link>
-		<i class="iconfont icon-search"></i>
+		
+		<!-- slot name="c"></slot> -->
+		<router-link  slot="c" tag="div" to="/login" activeClass="active">登录</router-link>
+		<slot name="a"></slot>
+			
+		
 
 	</nav>
 </template>

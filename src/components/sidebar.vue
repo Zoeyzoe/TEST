@@ -25,7 +25,7 @@ aside{
   width: 100%;
   height: 100%;
   color:black;
-  z-index: 10;
+  z-index: 11;
   background: #fff
 
 }
