@@ -12,7 +12,7 @@
 			<div @click="isShow=!isShow" style="display: flex">
 				<img src="./assets/logo.png" style="height: 30px">
 				<p>
-					城市
+					{{$store.state.citytitle}}
 					<i class="iconfont icon-moreunfold"></i>
 				</p>
 			</div>
@@ -39,7 +39,7 @@
 			<ul class="city">
 				<li v-for="city in arr">
 					<h2>{{city.group_section.title}}</h2>
-					<p>{{city.group_section.desc}}</p>
+					<p>{{city.group_section.desc}}</p>.
 					<ul >
 						<!-- <router-link tag="li" to="/product" activeClass="active" v-for="next in city.tabs" @click="check()">
 							<img :src="next.url" alt="">
@@ -84,7 +84,8 @@ export default {
     	citylist:[
     		{
     			name:'上海',
-    			id:104
+    			id:104,
+    			
     		},
     		{
     			name:'北京',
@@ -125,10 +126,9 @@ export default {
   	handleClick(id){
   		console.log(id);
   		router.push(`/home/${id}`)
-
-  		
-
+  		// router.push(`/category/list/${id}`)
   	},
+
   	check(){
   		location.href="/#/product"
   	},

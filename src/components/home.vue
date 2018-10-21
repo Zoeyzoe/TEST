@@ -7,7 +7,6 @@
 					<h2>{{city.group_section.title}}</h2>
 					<p>{{city.group_section.desc}}</p>
 					<ul >
-						
 					    <li v-for="next in city.tabs" @click="check(next.enjoy_url)">
 						    <img :src="next.url" alt="">
 						    <h3>{{next.title}}</h3>
@@ -30,8 +29,10 @@
 		  mounted(){
 		  	console.log("aaa")
 		  	axios.get(`/hub/home/v1/web/week_choice.json?city_id=${this.$route.params.cityid}&page=0`).then(res=>{
-		  		console.log(res.data)
-		  		this.arr = res.data
+		  		console.log(res.data);
+		  		this.arr = res.data;
+  		        this.$store.commit("changecitytitle", this.$route.params.cityid)
+
 		  	})
 		  },
 		  methods:{

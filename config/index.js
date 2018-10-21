@@ -27,6 +27,12 @@ module.exports = {
             target:'https://api.ricebook.com',
             host:'api.ricebook.com',
             changeOrigin:true
+        },
+
+        '/4':{
+            target:'https://api.ricebook.com',
+            host:'api.ricebook.com',
+            changeOrigin:true
         }
     },
 

@@ -22,7 +22,7 @@
       
     },
     mounted(){
-      console.log(this.$route.params);
+      console.log(this.$route.params + "哈哈哈哈");
       // product/info/product_detail.json?
       axios.get(`/product/info/product_detail.json?product_id=${this.$route.params.myfirstId}&sub_product_id=${this.$route.params.mysecondId}`).then(res=>{
         console.log(res.data)

@@ -6,6 +6,7 @@ Vue.use(Router)
 import product from '../components/product.vue'
 import login from '../components/login.vue'
 import sort from '../components/sort.vue'
+import detail from '../components/detail.vue'
 import category from '../components/category.vue'
 import home from '../components/home.vue'
 
@@ -13,9 +14,14 @@ import home from '../components/home.vue'
 export default new Router({
   routes: [
             {
+                path:'/',
+                redirect:'/home/140'
+            },
+            {
                 path:'/home/:cityid',
                 component:home
             },
+
             {
                 path:'/category',
                 component:category,
@@ -23,6 +29,10 @@ export default new Router({
                     {
                         path:'list',
                         component:sort
+                    },
+                    {
+                        path:'detail',
+                        component:detail
                     },
                     {
                         path:'/',
@@ -40,9 +50,9 @@ export default new Router({
                 path:'/login',
                 component:login
             },
-            {
-                path:"/",
-                redirect:"/home"
-            }
+            // {
+            //     path:"/",
+            //     redirect:"/home"
+            // }
   ]
 })

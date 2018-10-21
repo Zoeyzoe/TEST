@@ -3,7 +3,7 @@
 
       <ul v-for="data in list">
           <div class="sortname">{{data.name}}</div>
-          <li v-for="fooddata in data.sub_category_list" class="body">
+          <li v-for="fooddata in data.sub_category_list" class="body" @click="send()">
             {{fooddata.name}}
           </li>
       </ul>
@@ -34,6 +34,12 @@
       }).catch(err=>{
         console.log('error');
       })
+    },
+    methods:{
+      send(){
+        
+        location.href="/#/category/detail"
+      }
     }
 
 
